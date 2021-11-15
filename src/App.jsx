@@ -1,6 +1,7 @@
 import { Fragment } from 'react/cjs/react.production.min';
 import Navbar from './components/navbar/navbar';
 import Front from './components/frontpage/frontpage';
+import Footer from './components/footer/footer';
 import './App.css'
 
 function App () {
@@ -9,6 +10,11 @@ function App () {
 
       <Navbar />
       <Front />
+
+      {/* ACA IRIAN LOS PRODUCTOS */}
+
+      <Footer/>
+
 
     </Fragment>
   )
