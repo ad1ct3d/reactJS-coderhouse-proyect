@@ -1,7 +1,7 @@
 import { Fragment } from "react/cjs/react.production.min";
 import img from '../../../img/imagen1.jpg'
 
-// productos para MAP
+// array de productos
 const productos = [
     {
         titulo: 'torta vainilla',
