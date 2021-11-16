@@ -2,20 +2,23 @@ import { Fragment } from 'react/cjs/react.production.min';
 import Navbar from './components/navbar/navbar';
 import Front from './components/frontpage/frontpage';
 import Footer from './components/footer/footer';
+import ItemList from './components/items/ItemList'
 import './App.css'
 
 function App () {
   return (
     <Fragment>
-
+      {/* inicio de app */}
       <Navbar />
+
+      {/* imagenes/carrusel */}
       <Front />
 
-      {/* ACA IRIAN LOS PRODUCTOS */}
+      {/* articulos */}
+      <ItemList />
 
       <Footer/>
-
-
+      {/* final de app */}
     </Fragment>
   )
 }

@@ -3,11 +3,11 @@ import { Fragment } from "react/cjs/react.production.min";
 const Footer = () => {
     return (
         <Fragment>
-            <div className='footer'>
+            <footer className='footer'>
 
                 SOY UN FOOTER
 
-            </div>
+            </footer>
         </Fragment>
     )
 }

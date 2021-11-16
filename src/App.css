@@ -80,6 +80,15 @@ html {
     max-height: 100%;
 }
 
+/* item list */
+.itemList {
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
 /* footer */
 .footer {
     width: 100%;
