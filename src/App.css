@@ -89,6 +89,29 @@ html {
     flex-direction: column;
 }
 
+/* product */
+
+.productsContainer {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
+
+.productCard {
+    min-height: 300px;
+    min-width: 150px;
+    max-width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: gray;
+}
+
+.productCard .productImg {
+    width: 100%;
+    height: 100%;
+}
+
 /* footer */
 .footer {
     width: 100%;
