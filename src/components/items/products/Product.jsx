@@ -1,56 +1,27 @@
-import { Fragment } from "react/cjs/react.production.min";
+import React from "react";
+import { Fragment } from "react";
 import img from '../../../img/imagen1.jpg'
 
-// array de productos
-const productos = [
-    {
-        titulo: 'torta vainilla',
-        sabor: 'vainilla',
-        precio: 50,
-        id: 0
-    },
-    {
-        titulo: 'torta chocolate',
-        sabor: 'chocolate',
-        precio: 80,
-        id: 1
-    },
-    {
-        titulo: 'torta limon',
-        sabor: 'limon',
-        precio: 100,
-        id: 2
-    }
-]
-
-
-const Product = () => {
+export const Product = ({id, titulo, categoryID, precio}) => {
     return (
         <Fragment>
-            {/* JAVA */}
-            {
-                productos.map((productos, index) => {
-                    return(
-                        // card de producto
-                        <div className='productCard' key={productos.id}>
+                    
+            {/* card de producto */}
+            <div className='productCard' key={id}>
 
-                            {/* imagen */}
-                            <img className='productImg' src={img} alt="producto" />
+                {/* imagen */}
+                <img className='productImg' src={img} alt="producto" />
 
-                            {/* titulo */}
-                            <a href="#" className='prductTitle'>{productos.titulo}</a>
+                {/* titulo */}
+                <a href="#" className='productTitle'>{titulo}</a>
 
-                            {/* precio */}
-                            <p className='productPrice'>${productos.precio}</p>
+                {/* precio */}
+                <p className='productPrice'>${precio}</p>
 
-                            <button className='addToCartBtn'>Agregar al carrito</button>        
-                        </div>
-                    )
-                })
-            }
+                <button className='addToCartBtn'>Agregar al carrito</button>        
+            </div>
         </Fragment>
     )
 }
 
-export default Product;
 

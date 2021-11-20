@@ -1,25 +1,31 @@
 import { Fragment } from 'react/cjs/react.production.min';
+
+// imports for components
 import Navbar from './components/navbar/navbar';
-import Front from './components/frontpage/frontpage';
 import Footer from './components/footer/footer';
-import ItemList from './components/items/ItemList'
-import Product from './components/items/products/Product'
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
+// imports for navigation components
+import Home from './components/views/home/Home'
+
+
+// styles
 import './App.css'
 
 function App () {
   return (
     <Fragment>
-      {/* inicio de app */}
-      <Navbar />
+      <BrowserRouter>
+        {/* inicio de app */}
+        <Navbar />
 
-      {/* imagenes/carrusel */}
-      <Front />
+        {/* content */}
+        <Home />
 
-      {/* articulos */}
-      <ItemList />
-
-      <Footer/>
-      {/* final de app */}
+        {/* footer */}
+        <Footer/>
+        {/* final de app */}
+      </BrowserRouter>
     </Fragment>
   )
 }
