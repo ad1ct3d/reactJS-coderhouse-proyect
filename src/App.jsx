@@ -8,9 +8,12 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 // imports for navigation components
 import Home from './components/views/home/Home'
 
+import ItemListContainer from './components/items/ItemListContainer'
+
 
 // styles
 import './App.css'
+import { ItemDetailContainer } from './components/items/ItemDetailContainer';
 
 function App () {
   return (
@@ -19,8 +22,14 @@ function App () {
         {/* inicio de app */}
         <Navbar />
 
-        {/* content */}
-        <Home />
+        <Routes>
+          <Route path='/' element={<Home />} />
+
+          <Route path='/category/:categoryID' element={<ItemListContainer />} />
+
+          <Route path='product/:productID' element={<ItemDetailContainer />}/>
+
+        </Routes>
 
         {/* footer */}
         <Footer/>

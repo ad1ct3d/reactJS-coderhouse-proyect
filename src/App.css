@@ -135,6 +135,17 @@ html {
     margin-bottom: 10px;
 }
 
+/* Detalle de producto */
+.detailContainer {
+    height: 100%;
+    width: 100%;
+}
+
+.detailContainer .detailImg {
+    width: 100px;
+    height: 100px;
+}
+
 /* footer */
 .footer {
     width: 100%;

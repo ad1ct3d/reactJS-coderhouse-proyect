@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { Fragment } from "react/cjs/react.production.min";
 const Navbar = () => {
 
@@ -7,25 +7,25 @@ const Navbar = () => {
         <Fragment>
              <div className="nav-container">
                 <nav className='navbar'>
-                    <Link to="/home" className='navbar-btn logo'>LOGO</Link>
+                    <Link to="/" className='navbar-btn logo'>LOGO</Link>
 
                     <div className='dropdown'>
                         <button className='navbar-btn dropBtn'>BOX</button>
                         <div className='dropdownContent'>
-                            <Link to="#">DESAYUNOS</Link>
-                            <Link to="#">CATERING</Link>
+                            <NavLink to="/category/desayunos">DESAYUNOS</NavLink>
+                            <NavLink to="/category/catering">CATERING</NavLink>
                         </div>
                     </div>
 
                     <div className='dropdown'>
                         <button className='navbar-btn dropBtn'>TORTAS</button>
                         <div className='dropdownContent'>
-                            <Link to="/simples">TORTAS SIMPLES</Link>
-                            <Link to="/categories/elaboradas">TORTAS ELABORADAS</Link>
-                            <Link to="#">LETER / NUMBER</Link>
+                            <NavLink to="/category/tortas-simples">TORTAS SIMPLES</NavLink>
+                            <NavLink to="/category/tortas-elaboradas">TORTAS ELABORADAS</NavLink>
+                            <NavLink to="/category/leter-number">LETER / NUMBER</NavLink>
                         </div>
                     </div>
-                    <Link to="/contact" className='navbar-btn'>CONTACTO</Link>
+                    <NavLink to="/contact" className='navbar-btn'>CONTACTO</NavLink>
                 </nav>
             </div>
         </Fragment>
