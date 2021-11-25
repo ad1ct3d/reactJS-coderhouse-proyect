@@ -12,17 +12,22 @@ export const ItemDetail = ({item}) => {
                 {/* imagen */}
                 <img src={img} alt="productIMG" className='detailImg'/>
 
-                {/* titulo */}
-                <p className='detailTitle'>{ item.titulo }</p>
+                {/* esta clase esta muy mal nombrada pero estoy cansado. Despues lo ordeno */}
+                <div className='detailContainerContainer'>
 
-                {/* precio */}
-                <p className='detailPrice'>${ item.precio }</p>
+                    {/* titulo */}
+                    <p className='detailTitle'>{ item.titulo }</p>
 
-                {/* descripcion */}
-                <p className='detailDescription'>Lorem ipsum dolor sit amet.</p>
+                    {/* precio */}
+                    <p className='detailPrice'>${ item.precio }</p>
 
-                {/* boton */}
-                <button className='detailAddToCartBtn'> agregar al carrito </button>
+                    {/* descripcion */}
+                    <p className='detailDescription'>Lorem ipsum dolor sit amet.</p>
+
+                    {/* boton */}
+                    <button className='detailAddToCartBtn'> agregar al carrito </button>
+
+                </div>
 
             </section>
         </Fragment>
