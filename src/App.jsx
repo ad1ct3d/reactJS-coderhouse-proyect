@@ -10,10 +10,13 @@ import Home from './components/views/home/Home'
 
 import ItemListContainer from './components/items/ItemListContainer'
 
+import { ItemDetailContainer } from './components/items/ItemDetailContainer';
+
+import Cart from './components/views/cart/Cart'
+
 
 // styles
 import './App.css'
-import { ItemDetailContainer } from './components/items/ItemDetailContainer';
 
 function App () {
   return (
@@ -28,6 +31,8 @@ function App () {
           <Route path='/category/:categoryID' element={<ItemListContainer />} />
 
           <Route path='product/:productID' element={<ItemDetailContainer />}/>
+
+          <Route path='/cart' element={<Cart />} />
 
         </Routes>
 

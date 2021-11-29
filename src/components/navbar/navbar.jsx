@@ -1,5 +1,6 @@
 import { NavLink, Link } from "react-router-dom";
 import { Fragment } from "react/cjs/react.production.min";
+
 const Navbar = () => {
 
 
@@ -9,6 +10,7 @@ const Navbar = () => {
                 <nav className='navbar'>
                     <Link to="/" className='navbar-btn logo'>LOGO</Link>
 
+                    {/* dropdown BOX */}
                     <div className='dropdown'>
                         <button className='navbar-btn dropBtn'>BOX</button>
                         <div className='dropdownContent'>
@@ -17,6 +19,7 @@ const Navbar = () => {
                         </div>
                     </div>
 
+                    {/* dropdown TORTAS */}
                     <div className='dropdown'>
                         <button className='navbar-btn dropBtn'>TORTAS</button>
                         <div className='dropdownContent'>
@@ -25,7 +28,12 @@ const Navbar = () => {
                             <NavLink to="/category/leter-number">LETER / NUMBER</NavLink>
                         </div>
                     </div>
+
                     <NavLink to="/contact" className='navbar-btn'>CONTACTO</NavLink>
+
+                    {/* CARRITO */}
+                    <Link to='/cart' className='navbar-btn'>CARRITO (0)</Link>
+
                 </nav>
             </div>
         </Fragment>

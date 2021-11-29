@@ -1,8 +1,11 @@
 import { Fragment } from "react"
+
+import { Link } from "react-router-dom";
 import img from '../../../img/imagen1.jpg'
+import Counter from '../counter/Counter'
 
 
-export const ItemDetail = ({item}) => {
+export const ItemDetail = ({item, onAdd}) => {
 
     console.log(item)
     return (
@@ -24,8 +27,12 @@ export const ItemDetail = ({item}) => {
                     {/* descripcion */}
                     <p className='detailDescription'>Lorem ipsum dolor sit amet.</p>
 
-                    {/* boton */}
-                    <button className='detailAddToCartBtn'> agregar al carrito </button>
+                    {/* contador */}
+                    <Counter stock={item.stock} onAdd={onAdd} />
+
+
+                    {/* Finalizar compra */}
+                    <Link to='/cart'><button className='checkOutBtn'> Finalizar compra </button></Link>
 
                 </div>
 

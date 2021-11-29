@@ -19,16 +19,17 @@ export const ItemDetailContainer = () => {
         getItemDetail.then((res) => {
             const prod = res.find((i) => i.productID === `${productID}`) 
             setItem(prod)
-
         })
-        console.log(item)
     }, [ productID ]);
 
-
+        // agregar al carrito
+        const onAdd = (cantidad) => {
+            console.log({...item, cantidad: cantidad});
+        };
 
         return (
             <Fragment>
-                <ItemDetail item={item} />
+                <ItemDetail item={item} onAdd={onAdd} />
             </Fragment>
         )
 }

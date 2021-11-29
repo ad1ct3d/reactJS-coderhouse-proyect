@@ -156,8 +156,13 @@ html {
     font-size: 30px;
 }
 
+.detailContainer .detailContainerContainer .detailPrice {
+    font-size: 30px;
+}
+
 .detailContainer .detailContainerContainer .detailAddToCartBtn {
-    height: 80px;
+    height: 40px;
+    margin: 10px;
 }
 
 .detailContainer .detailImg {
@@ -166,6 +171,29 @@ html {
     max-width: 600px;
     max-height: 600px;    
 }
+
+.counterContainer {
+    display: flex;
+    justify-content:space-evenly;
+    align-items: center;
+}
+
+.counterContainer .removeBtn {
+    height: 40px;
+    width: 40px;
+}
+
+.counterContainer .addBtn {
+    height: 40px;
+    width: 40px;
+}
+
+.checkOutBtn {
+    margin: 10px;
+    height: 40px;
+}
+
+
 
 /* footer */
 .footer {

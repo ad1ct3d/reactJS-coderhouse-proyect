@@ -1,44 +1,32 @@
 import React, { useState, useEffect } from "react";
 import { Fragment } from "react/cjs/react.production.min";
 
-const Counter = ({stock, initial}) => {
+const Counter = ({stock, onAdd}) => {
 
-    const [number, setNumber] = useState(0)
+    const [number, setNumber] = useState(1)
 
+    // agregar item
     const add = () => {
         number !== stock && setNumber(number + 1);
-
     }
 
+    // restar item
     const remove = () => {
-        number !== initial && setNumber(number - 1);
+        number !== 1 && setNumber(number - 1);
     }
 
     return (
         <Fragment>
-            <p>{number}</p>
-            <button id='addBtn' onClick={add}>+</button>
-            <button id='removeBtn' onClick={remove}>-</button>
+            <div className='counterContainer'>
+                <button id='removeBtn' className='removeBtn' onClick={remove}>-</button>
+                <p>{number}</p>
+                <button id='addBtn' className='addBtn' onClick={add}>+</button>
+            </div>
+
+           {/* boton */}
+            <button className='detailAddToCartBtn' onClick={()=>onAdd(number)}> agregar al carrito </button>
         </Fragment>
     )
 }
-
-
-
-
-
-
-// const Counter = ({stock, initial, onAdd}) => {
-
-//     stock = 5;
-//     initial = 1;
-//     onAdd = initial + 1;
-
-//     return (
-//         <Fragment>
-//             <h1>contador</h1>
-//         </Fragment>
-//     )
-// }
 
 export default Counter
