@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Fragment } from "react";
+import {CartContext} from '../context/CartContext';
 import  ItemDetail  from "./products/ItemDetail";
 import { Data } from '../../data/data.js';
 import { useParams } from "react-router-dom";
@@ -7,6 +8,7 @@ import { useParams } from "react-router-dom";
 export const ItemDetailContainer = () => {
     const [item, setItem] = useState({});
     const { productID } = useParams();
+    const { addToCart } = useContext(CartContext);
 
     useEffect(() => {
         const getItemDetail = new Promise((resolve, reject) => {
@@ -22,9 +24,10 @@ export const ItemDetailContainer = () => {
         })
     }, [ productID ]);
 
-        // agregar al carrito
+        // agregar al carrito=
         const onAdd = (cantidad) => {
-            console.log({...item, cantidad: cantidad});
+            // console.log({...item, cantidad: cantidad});
+            addToCart(item, cantidad)
         };
 
         return (

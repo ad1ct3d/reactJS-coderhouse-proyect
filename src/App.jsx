@@ -5,6 +5,9 @@ import Navbar from './components/navbar/navbar';
 import Footer from './components/footer/footer';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
+// context
+import { CartProvider } from './components/context/CartContext';
+
 // imports for navigation components
 import Home from './components/views/home/Home'
 
@@ -18,29 +21,32 @@ import Cart from './components/views/cart/Cart'
 // styles
 import './App.css'
 
+
 function App () {
   return (
-    <Fragment>
-      <BrowserRouter>
-        {/* inicio de app */}
-        <Navbar />
+    <CartProvider>
+      <Fragment>
+        <BrowserRouter>
+          {/* inicio de app */}
+          <Navbar />
 
-        <Routes>
-          <Route path='/' element={<Home />} />
+          <Routes>
+            <Route path='/' element={<Home />} />
 
-          <Route path='/category/:categoryID' element={<ItemListContainer />} />
+            <Route path='/category/:categoryID' element={<ItemListContainer />} />
 
-          <Route path='product/:productID' element={<ItemDetailContainer />}/>
+            <Route path='product/:productID' element={<ItemDetailContainer />}/>
 
-          <Route path='/cart' element={<Cart />} />
+            <Route path='/cart' element={<Cart />} />
 
-        </Routes>
+          </Routes>
 
-        {/* footer */}
-        <Footer/>
-        {/* final de app */}
-      </BrowserRouter>
-    </Fragment>
+          {/* footer */}
+          <Footer/>
+          {/* final de app */}
+        </BrowserRouter>
+      </Fragment>
+    </CartProvider>
   )
 }
 

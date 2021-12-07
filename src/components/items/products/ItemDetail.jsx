@@ -7,7 +7,6 @@ import Counter from '../counter/Counter'
 
 export const ItemDetail = ({item, onAdd}) => {
 
-    console.log(item)
     return (
         <Fragment>
             <section className='detailContainer' key={ item.productID }>
