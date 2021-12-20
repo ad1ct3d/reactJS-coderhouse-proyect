@@ -14,7 +14,7 @@ export const ItemDetailContainer = () => {
         const getItemDetail = new Promise((resolve, reject) => {
             setTimeout(() => {
                 resolve(Data);
-            }, 2000)
+            }, 1000)
         })
 
 
