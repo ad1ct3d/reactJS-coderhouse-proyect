@@ -20,9 +20,14 @@ import Cart from './components/views/cart/Cart'
 
 // styles
 import './App.css'
+import { useEffect } from 'react';
+import {getFirestore, collection, getDocs } from 'firebase/firestore'
 
 
 function App () {
+
+
+
   return (
     <CartProvider>
       <Fragment>
@@ -35,7 +40,7 @@ function App () {
 
             <Route path='/category/:categoryID' element={<ItemListContainer />} />
 
-            <Route path='product/:productID' element={<ItemDetailContainer />}/>
+            <Route path='product/:id' element={<ItemDetailContainer />}/>
 
             <Route path='/cart' element={<Cart />} />
 

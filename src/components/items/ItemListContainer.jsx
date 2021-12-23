@@ -1,34 +1,31 @@
 import React, { useState, useEffect } from "react";
 import {ItemList} from './ItemList';
-import { Data } from "../../data/data";
 import { Fragment } from "react";
 import { useParams } from "react-router-dom";
+import { getFirestore, collection, getDocs } from 'firebase/firestore'
 
 export const ItemListContainer = () => {
     const [items, setItems] = useState([]);
-    const { categoryID } = useParams();
-
+    const { id } = useParams()
 
     useEffect(() => {
-        const getItems = new Promise((resolve) => {
-            setTimeout(() => {
-                resolve(Data);
-                console.log(Data)
-            }, 1000)
+        const db = getFirestore()
+        const ref = collection(db, 'products')
+        getDocs(ref).then((snapShot) => {
+            const products = snapShot.docs.map((doc) => {
+                return {
+                    id: doc.id, ...doc.data(),
+                }
+            })
+            const categorias = products.filter((i) => i.categoryID === `${id}`)
+            id === undefined ? setItems(products) : setItems(categorias)
         })
 
-        getItems.then((res) => {
-            categoryID ? setItems(res.filter(item => item.categoryID === categoryID))
-           : setItems(res);
-        });
+    }, [id])
 
-    }, [categoryID]);
-    
     return (
         <Fragment>
-            <div className='itemList'>
-                <ItemList items={items} key={Data.productID}/>
-            </div>
+            <ItemList items={items} />
         </Fragment>
     )
 }

@@ -1,4 +1,5 @@
-import React from 'react'
+
+import React, { useEffect } from 'react'
 import { useState } from 'react';
 
 
@@ -7,12 +8,10 @@ export const CartContext = React.createContext();
 export const CartProvider = ({children}) =>{
 
     const [cart, setCart] = useState([]);
+    const [userEmail, setUserEmail] = useState('')
 
-
-
-
-    const isOnCart = (productID) => {
-        const resultado = cart.find((x) => x.productID === productID)
+    const isOnCart = (id) => {
+        const resultado = cart.find((x) => x.id === id)
 
         if (resultado !== undefined) {
             return true
@@ -23,11 +22,19 @@ export const CartProvider = ({children}) =>{
 
     const addToCart = (item, cantidad) =>{
         total()
-        if (isOnCart(item.productID)) {
+        if (isOnCart(item.id)) {
             sumarCantidad(item, cantidad)
+            console.log(item)
         } else {
             setCart([...cart, {...item,cantidad}])
         }
+    }
+
+    const total = () => {
+        const sumaTotal = cart.reduce(
+            (acc, prev) => acc + prev.cantidad * prev.precio, 0
+        )
+        return sumaTotal
     }
 
     const sumarCantidad = (item, cantidad) => {
@@ -39,19 +46,29 @@ export const CartProvider = ({children}) =>{
         })
     }
 
-    const total = () => {
-        const sumaTotal = cart.reduce(
-            (acc, prev) => acc + prev.cantidad * prev.precio, 0
-        )
-        return sumaTotal
+    const deleteItem = (id) => {
+        setCart(cart.filter((x) => x.id !== id))
     }
+
+    const cantidadTotal = () => {
+       const result = cart.reduce(
+           (acc, cur) => cur.cantidad + acc, 0
+        )
+       return result
+    }
+
+
+    const getUser = (form) => {
+        setUserEmail(form)
+    }
+
 
     const deleteCart = () => {
         setCart([])
     };
 
     return(
-        <CartContext.Provider value={{addToCart, cart, deleteCart, total}}>
+        <CartContext.Provider value={{userEmail, getUser, addToCart, cart, deleteCart, total, cantidadTotal, deleteItem}}>
             {children}
         </CartContext.Provider>
     )

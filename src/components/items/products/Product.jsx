@@ -3,15 +3,15 @@ import { Link } from "react-router-dom";
 import { Fragment } from "react";
 import img from '../../../img/imagen1.jpg'
 
-export const Product = ({productID, titulo, categoryID, precio}) => {
+export const Product = ({id, titulo, precio}) => {
     return (
         <Fragment>
                     
             {/* card de producto */}
-            <div className='productCard' key={productID}>
+            <div className='productCard' key={id}>
 
                 {/* imagen */}
-                <Link to={`/product/${productID}`}><img className='productImg' src={img} alt="producto" /></Link>
+                <Link to={`/product/${id}`}><img className='productImg' src={img} alt="producto" /></Link>
 
                 {/* titulo */}
                 <a href="#" className='productTitle'>{titulo}</a>

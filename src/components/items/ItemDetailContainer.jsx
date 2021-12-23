@@ -1,38 +1,27 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect} from "react";
 import { Fragment } from "react";
-import {CartContext} from '../context/CartContext';
 import  ItemDetail  from "./products/ItemDetail";
-import { Data } from '../../data/data.js';
 import { useParams } from "react-router-dom";
+import { doc, getDoc, getFirestore } from "@firebase/firestore";
 
 export const ItemDetailContainer = () => {
     const [item, setItem] = useState({});
-    const { productID } = useParams();
-    const { addToCart } = useContext(CartContext);
+    const { id } = useParams();
 
     useEffect(() => {
-        const getItemDetail = new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve(Data);
-            }, 1000)
-        })
+        const db = getFirestore();
+        const ref = doc(db, 'products', id);
+        getDoc(ref).then((snap) => {
+            setItem({
+                id: snap.id, ...snap.data(),
+            });
+        });
+    }, [id]);
 
-
-        getItemDetail.then((res) => {
-            const prod = res.find((i) => i.productID === `${productID}`) 
-            setItem(prod)
-        })
-    }, [ productID ]);
-
-        // agregar al carrito=
-        const onAdd = (cantidad) => {
-            // console.log({...item, cantidad: cantidad});
-            addToCart(item, cantidad)
-        };
 
         return (
             <Fragment>
-                <ItemDetail item={item} onAdd={onAdd} />
+                <ItemDetail item={item} />
             </Fragment>
         )
 }

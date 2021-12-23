@@ -1,8 +1,11 @@
+import { useContext } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { Fragment } from "react/cjs/react.production.min";
+import { CartContext } from "../context/CartContext";
 
 const Navbar = () => {
-
+    const {cantidadTotal} = useContext(CartContext)
+    const items = {cantidadTotal: cantidadTotal()}
 
     return (
         <Fragment>
@@ -32,7 +35,7 @@ const Navbar = () => {
                     <NavLink to="/contact" className='navbar-btn'>CONTACTO</NavLink>
 
                     {/* CARRITO */}
-                    <Link to='/cart' className='navbar-btn'>CARRITO (0)</Link>
+                    <Link to='/cart' className='navbar-btn'>CARRITO ( {cantidadTotal()} )</Link>
 
                 </nav>
             </div>

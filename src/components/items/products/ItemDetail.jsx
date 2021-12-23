@@ -1,12 +1,17 @@
-import { Fragment } from "react"
-
+import { Fragment, useContext } from "react"
+import { CartContext } from "../../context/CartContext";
 import { Link } from "react-router-dom";
 import img from '../../../img/imagen1.jpg'
 import Counter from '../counter/Counter'
 
 
-export const ItemDetail = ({item, onAdd}) => {
+export const ItemDetail = ({item}) => {
 
+    const { addToCart } = useContext(CartContext)
+
+    const onAdd = (cantidad) => {
+        addToCart(item, cantidad)
+    }
     return (
         <Fragment>
             <section className='detailContainer' key={ item.productID }>
