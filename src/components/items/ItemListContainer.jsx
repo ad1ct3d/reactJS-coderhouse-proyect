@@ -17,14 +17,17 @@ export const ItemListContainer = () => {
                     id: doc.id, ...doc.data(),
                 }
             })
-            const categorias = products.filter((i) => i.categoryID === `${id}`)
-            id === undefined ? setItems(products) : setItems(categorias)
+
+
+            // const categorias = products.filter((i) => i.categoryID === `${id}`)
+            id === undefined ? setItems(products) : setItems(products.filter((i) => i.categoryID === `${id}`));
         })
 
     }, [id])
 
     return (
         <Fragment>
+            <h1>productos</h1>
             <ItemList items={items} />
         </Fragment>
     )

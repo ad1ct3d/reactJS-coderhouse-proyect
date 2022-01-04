@@ -12,7 +12,7 @@ const Navbar = () => {
     return (
         <Fragment>
             <div className="navbar-header">
-                <Link to='/sign-up'>Registrarse</Link>
+                <Link to='/dashboard'>Panel de usuario</Link>
                 <p>|</p>
                 <Link to='/log-in'>Iniciar Sesión</Link>
             </div>

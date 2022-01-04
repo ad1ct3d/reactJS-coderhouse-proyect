@@ -1,18 +1,20 @@
-import { Fragment } from "react/cjs/react.development"
+import React, { useContext } from 'react';
+import { UserContext } from '../../context/UserContext';
 
-const login = () => {
+const Login = () => {
+    const { login, user, logout } = useContext(UserContext);
+
     return (
-        <Fragment>
-            <h2>Nombre de usuario</h2>
-            <input type="text" />
+        <div>
+            {user ? (
+                <button onClick={logout}>logout</button>
+            ) : (
+                <button onClick={login}>login con goolge</button>
+            )}
 
-            <h2>contrasena</h2>
-            <input type="password" />
+            <h2>{user?.email}</h2>
+        </div>
+    );
+};
 
-            <button>Iniciar sesion</button>
-        </Fragment>
-
-    )
-}
-
-export default login
+export default Login;

@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 // context
 import { CartProvider } from './components/context/CartContext';
+import { UserProvider } from './components/context/UserContext';
 
 // imports for navigation components
 import Home from './components/views/home/Home'
@@ -24,10 +25,7 @@ import Login from './components/views/login/Login'
 
 // styles
 import './App.css'
-import { useEffect } from 'react';
-import {getFirestore, collection, getDocs } from 'firebase/firestore'
-import login from './components/views/login/Login';
-import { AuthProvider } from './components/auth/Auth';
+import Dashboard from './components/dashboard/Dashboard';
 
 
 function App () {
@@ -35,7 +33,7 @@ function App () {
 
 
   return (
-    // <AuthProvider>
+    <UserProvider>
       <CartProvider>
         <Fragment>
           <BrowserRouter>
@@ -51,7 +49,7 @@ function App () {
 
               <Route path='/cart' element={<Cart />} />
 
-              <Route path='/sign-up' element={<SignUp />}/>
+              <Route path='/dashboard' element={<Dashboard />}/>
 
               <Route path='/log-in' element={<Login />} />
 
@@ -63,7 +61,7 @@ function App () {
           </BrowserRouter>
         </Fragment>
       </CartProvider>
-    // </AuthProvider>
+    </UserProvider>
   )
 }
 
