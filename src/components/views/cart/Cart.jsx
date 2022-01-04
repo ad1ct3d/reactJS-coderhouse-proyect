@@ -72,7 +72,7 @@ const Cart = () => {
                                     form.email === ''
                                 }
                             >
-                                Finalizar compra 🙌🏼
+                                Finalizar compra 
                             </button>
                         </form>
                     </>

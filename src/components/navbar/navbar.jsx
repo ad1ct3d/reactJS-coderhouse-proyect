@@ -2,6 +2,8 @@ import { useContext } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { Fragment } from "react/cjs/react.production.min";
 import { CartContext } from "../context/CartContext";
+import img1 from '../../img/header-img-recortada.png'
+import './navbar.css'
 
 const Navbar = () => {
     const {cantidadTotal} = useContext(CartContext)
@@ -9,9 +11,17 @@ const Navbar = () => {
 
     return (
         <Fragment>
+            <div className="navbar-header">
+                <Link to='/sign-up'>Registrarse</Link>
+                <p>|</p>
+                <Link to='/log-in'>Iniciar Sesión</Link>
+            </div>
+
              <div className="nav-container">
+
+
                 <nav className='navbar'>
-                    <Link to="/" className='navbar-btn logo'>LOGO</Link>
+                    <Link to="/" className='navbar-btn logo'><img className="logoImg" src={ img1 } alt="Paulisserie" /></Link>
 
                     {/* dropdown BOX */}
                     <div className='dropdown'>

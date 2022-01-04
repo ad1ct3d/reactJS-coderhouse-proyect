@@ -17,11 +17,17 @@ import { ItemDetailContainer } from './components/items/ItemDetailContainer';
 
 import Cart from './components/views/cart/Cart'
 
+import SignUp from './components/views/Signup/SignUp'
+
+import Login from './components/views/login/Login'
+
 
 // styles
 import './App.css'
 import { useEffect } from 'react';
 import {getFirestore, collection, getDocs } from 'firebase/firestore'
+import login from './components/views/login/Login';
+import { AuthProvider } from './components/auth/Auth';
 
 
 function App () {
@@ -29,29 +35,35 @@ function App () {
 
 
   return (
-    <CartProvider>
-      <Fragment>
-        <BrowserRouter>
-          {/* inicio de app */}
-          <Navbar />
+    // <AuthProvider>
+      <CartProvider>
+        <Fragment>
+          <BrowserRouter>
+            {/* inicio de app */}
+            <Navbar />
 
-          <Routes>
-            <Route path='/' element={<Home />} />
+            <Routes>
+              <Route path='/' element={<Home />} />
 
-            <Route path='/category/:categoryID' element={<ItemListContainer />} />
+              <Route path='/category/:categoryID' element={<ItemListContainer />} />
 
-            <Route path='product/:id' element={<ItemDetailContainer />}/>
+              <Route path='product/:id' element={<ItemDetailContainer />}/>
 
-            <Route path='/cart' element={<Cart />} />
+              <Route path='/cart' element={<Cart />} />
 
-          </Routes>
+              <Route path='/sign-up' element={<SignUp />}/>
 
-          {/* footer */}
-          <Footer/>
-          {/* final de app */}
-        </BrowserRouter>
-      </Fragment>
-    </CartProvider>
+              <Route path='/log-in' element={<Login />} />
+
+            </Routes>
+
+            {/* footer */}
+            <Footer/>
+            {/* final de app */}
+          </BrowserRouter>
+        </Fragment>
+      </CartProvider>
+    // </AuthProvider>
   )
 }
 

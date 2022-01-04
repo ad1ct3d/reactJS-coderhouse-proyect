@@ -19,7 +19,7 @@ export const Product = ({id, titulo, precio}) => {
                 {/* precio */}
                 <p className='productPrice'>${precio}</p>
 
-                <button className='addToCartBtn'>Agregar al carrito</button>        
+                <button className='addToCartBtn'>Ver más</button>        
             </div>
         </Fragment>
     )
